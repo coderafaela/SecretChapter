@@ -17,11 +17,11 @@
         Console.WriteLine($"Sinopse: {Sinopse}");
         if (Disponivel)
         {
-            Console.WriteLine("Disponível para Empréstimo");
+            Console.WriteLine("\nDisponível para Empréstimo");
         }
         else
         {
-            Console.WriteLine("Não está disponível para empréstimo");
+            Console.WriteLine("\nNão está disponível para empréstimo");
         }
     }
 }
