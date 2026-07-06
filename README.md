@@ -1,4 +1,4 @@
-# 📚 Traduziu ou Não Traduziu?
+# 📚 Secret Chapter
 
 Sistema em C# para controlar se os livros de uma saga já possuem tradução para o português — ideal pra quem (como eu) já perdeu a paciência esperando a editora lançar o próximo volume da série favorita.
 
