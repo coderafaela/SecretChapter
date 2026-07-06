@@ -1,7 +1,14 @@
 ﻿class Autor
 {
     private List<Saga> sagas = new List<Saga>();
-    public string Nome { get; set; }
+
+    public Autor(string nome)
+    {
+        Nome = nome;
+    }
+
+
+    public string Nome { get; }
     public void adicionarSaga(Saga saga)
     {
         sagas.Add(saga);

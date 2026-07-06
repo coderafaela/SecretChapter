@@ -1,7 +1,13 @@
 ﻿class Saga
 {
     private List<Livro> livros = new List<Livro>();
-    public string Nome { get; set; }
+
+    public Saga(string nome)
+    {
+        Nome = nome;
+    }
+
+    public string Nome { get; }
     public int LivrosPertencentes => livros.Count;
     public void AdicionarLivro(Livro livro)
     {
