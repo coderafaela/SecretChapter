@@ -9,7 +9,7 @@
 
 
     public string Nome { get; }
-    public void adicionarSaga(Saga saga)
+    public void AdicionarSaga(Saga saga)
     {
         sagas.Add(saga);
     }

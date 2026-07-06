@@ -27,7 +27,7 @@ Livro livro3 = new Livro(robertJacksonBennett, "A Trade of Blood")
 shadowoftheLevithan.AdicionarLivro(livro1);
 shadowoftheLevithan.AdicionarLivro(livro2);
 shadowoftheLevithan.AdicionarLivro(livro3);
-robertJacksonBennett.adicionarSaga(shadowoftheLevithan);
+robertJacksonBennett.AdicionarSaga(shadowoftheLevithan);
 
 
 robertJacksonBennett.ExibirAutor();
