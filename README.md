@@ -1,84 +1,66 @@
 # 📚 Secret Chapter
 
-Sistema em C# para controlar se os livros de uma saga já possuem tradução para o português — ideal pra quem (como eu) já perdeu a paciência esperando a editora lançar o próximo volume da série favorita.
+Sistema em C# com menu interativo no terminal para cadastrar autores e seus livros, além de avaliar cada obra com uma nota — ideal pra quem (como eu) gosta de manter um controle pessoal do que já leu e o que achou.
 
 ## 💡 Sobre o projeto
 
-Comecei esse projeto como exercício de um curso da Alura, mas resolvi expandir pra resolver um problema bem real (e bem específico): saber rapidinho quais livros de uma saga estrangeira já foram traduzidos para o português e quais ainda estão só em inglês.
+Comecei esse projeto como exercício do curso **C#: aplicando a Orientação a Objetos**, da Alura, e resolvi adaptar pra um tema que eu realmente gosto: livros e autores. Foi meu primeiro contato de verdade com POO, e o projeto foi crescendo — hoje ele já tem um menu interativo completo, em vez de só rodar um cadastro fixo.
 
-O sistema modela três entidades principais que se relacionam entre si:
+O sistema modela duas entidades principais que se relacionam entre si:
 
-- **Autor** → pode ter várias sagas associadas
-- **Saga** → agrupa vários livros
-- **Livro** → guarda os detalhes de cada obra, incluindo se já tem tradução (`Traducao`), sinopse, número de páginas e gênero
+- **Autor** → guarda nome e a lista de livros escritos por ele
+- **Livro** → guarda o título e as notas (estrelas) recebidas, calculando a média automaticamente
 
 ## 🧱 Estrutura das classes
 
 ### `Autor`
-Guarda o nome do autor e a lista de sagas que ele escreveu. Um mesmo autor pode ter mais de uma saga cadastrada no sistema.
-
-### `Saga`
-Representa uma série de livros. Guarda o nome da saga e a lista de livros pertencentes a ela, além de expor quantos livros já foram adicionados (`LivrosPertencentes`).
+Guarda o nome do autor e a lista de livros associados a ele. Também mantém uma lista de sagas (`Sagas`), preparada para uso futuro, ainda não integrada ao menu.
 
 ### `Livro`
-Cada livro está sempre vinculado a um autor e tem:
-- Título
-- Gênero
-- Número de páginas (opcional)
-- Sinopse (opcional)
-- Se possui tradução para o português (`Traducao`)
+Guarda o título da obra e a lista de notas recebidas. A propriedade `Media` calcula a média das estrelas automaticamente, e `AdicionarEstrela()` permite registrar novas avaliações.
 
-Se páginas ou sinopse não forem informadas, o sistema avisa que a informação está indisponível, em vez de simplesmente printar `0` ou `null`.
+## ▶️ Funcionalidades do menu
+
+Ao rodar o programa, é exibido um menu com as seguintes opções:
+
+1. **Registrar um autor** — cadastra um novo autor no sistema
+2. **Registrar o livro de um autor** — vincula um livro a um autor já cadastrado
+3. **Mostrar todos os autores** — lista todos os autores cadastrados
+4. **Avaliar um livro** — busca um livro pelo título (entre todos os autores) e adiciona uma nota de 0 a 5 estrelas
+5. **Exibir os detalhes de um autor** — mostra o autor e a lista de livros dele, com a média de estrelas de cada um
+-1. **Sair** — encerra o programa
 
 ## ▶️ Exemplo de uso
 
 ```csharp
-Autor robertJacksonBennett = new Autor("Robert Jackson Bennett");
-Saga shadowoftheLevithan = new Saga("Shadow of the Leviathan");
-
-Livro livro1 = new Livro(robertJacksonBennett, "O Cálice Contaminado")
-{
-    Paginas = 448,
-    Genero = "Fantasia/Ficção Científica LGBTQ+",
-    Traducao = true,
-    Sinopse = "Em uma opulenta mansão de Daretana..."
-};
-
-shadowoftheLevithan.AdicionarLivro(livro1);
-robertJacksonBennett.adicionarSaga(shadowoftheLevithan);
-
-robertJacksonBennett.ExibirAutor();
-shadowoftheLevithan.ExibirSaga();
+Autor claireN = new Autor("Claire North");
+Livro livro1 = new Livro("Slow Gods");
+livro1.AdicionarEstrela(5);
+livro1.AdicionarEstrela(4);
+claireN.AdicionarLivro(livro1);
 ```
 
-### Saída esperada
+### Saída esperada (opção 5 — exibir detalhes do autor)
 
 ```
-Autor: Robert Jackson Bennett
-Sagas no Sistema: Shadow of the Leviathan
-Saga: Shadow of the Leviathan
-Livros Pertencentes: 3
-O Cálice Contaminado - Robert Jackson Bennett (Fantasia/Ficção Científica LGBTQ+)
-Páginas: 448
-Sinopse: Em uma opulenta mansão de Daretana...
-
-Possui tradução para o português
-...
+Autor: Claire North
+- Slow Gods | Estrelas: 4.5
 ```
 
 ## 🛠️ Tecnologias
 
 - C#
 - Orientação a Objetos (encapsulamento, composição entre classes, propriedades computadas)
+- Coleções (`Dictionary`, `List`) para gerenciar autores e livros em memória
 
 ## 🚀 Possíveis melhorias futuras
 
 - [ ] Persistência de dados (arquivo ou banco de dados)
-- [ ] Busca de livros por título ou autor
-- [ ] Ordenação de livros por data de lançamento
-- [ ] Interface de linha de comando com menu interativo
-- [ ] Integração com alguma API de catálogo de livros
+- [ ] Integrar `Saga` ao menu, permitindo agrupar livros por série
+- [ ] Busca de livros por autor sem precisar saber o título exato
+- [ ] Validação de entradas (evitar erro ao digitar texto onde se espera número)
+- [ ] Interface web ou API REST no lugar do terminal
 
 ## ✍️ Autora
 
-Feito por [Rafaela A. Quevedo](https://github.com/rafaela-aquevedo), estudante de ADS e futura desenvolvedora back-end, que só quer saber se vai ter que ler em inglês ou não.
+Feito por [Rafaela A. Quevedo](https://github.com/rafaela-aquevedo), estudante de ADS e futura desenvolvedora back-end, sempre com uma lista de leitura grande demais pra dar conta.
