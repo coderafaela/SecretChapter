@@ -1,9 +1,5 @@
 ﻿using SecretChapter.Modelos;
 
-Autor claireN = new Autor("Claire North");
-
-Autor joeA = new Autor("Joe Abercrombie");
-
 Dictionary<string, Autor> autoresRegistrados = new();
 
 
@@ -161,9 +157,14 @@ void AvaliarUmLivro()
         if (livroEncontrado != null)
         {
             Console.Write($"Digite o número de estrelas para {tituloDoLivro}: ");
-            double estrelasLivro = double.Parse(Console.ReadLine()!);
-            livroEncontrado.AdicionarEstrela(estrelasLivro);
-            Console.WriteLine($"\nAs {estrelasLivro} estrelas foram registradas com sucesso para o livro {tituloDoLivro}!");
+            Estrelas estrelasLivro = Estrelas.Parse(Console.ReadLine()!);
+        if (estrelasLivro.Estrela < 0 || estrelasLivro.Estrela > 5)
+        {
+            Console.WriteLine($"Número inválido. Por favor, digite um número entre 0 e 5.");
+            return;
+        }
+            livroEncontrado.AdicionarEstrela(estrelasLivro.Estrela);
+            Console.WriteLine($"\nAs {estrelasLivro.Estrela} estrelas foram registradas com sucesso para o livro {tituloDoLivro}!");
         }
         else
         {

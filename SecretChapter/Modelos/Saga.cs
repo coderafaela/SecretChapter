@@ -1,6 +1,6 @@
 ﻿namespace SecretChapter.Modelos;
 
-class Saga
+internal class Saga
 {
     private List<Livro> livros = new List<Livro>();
 
@@ -15,15 +15,4 @@ class Saga
     {
         livros.Add(livro);
     }
-
-    /* public void ExibirSaga()
-     {
-         Console.WriteLine($"Saga: {Nome}");
-         Console.WriteLine($"Livros Pertencentes: {LivrosPertencentes} ");
-         foreach (var livro in livros)
-         {
-             livro.ExibirFichaTecnica();
-             Console.WriteLine();
-         }
-     }*/
 }
