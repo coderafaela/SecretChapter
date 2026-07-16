@@ -1,6 +1,6 @@
 ﻿namespace SecretChapter.Modelos;
 
-class Autor
+internal class Autor
 {
     private List<Saga> sagas = new List<Saga>();
     private List<Livro> livros = new List<Livro>();
