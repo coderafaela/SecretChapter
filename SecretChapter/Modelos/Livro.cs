@@ -1,6 +1,6 @@
 ﻿namespace SecretChapter.Modelos;
 
-internal class Livro
+internal class Livro : IAvaliavel
 {
     private List<Estrelas> estrelas = new List<Estrelas>();
 
@@ -16,5 +16,10 @@ internal class Livro
     public void AdicionarEstrela(double estrela)
     {
         estrelas.Add(new Estrelas(estrela));
+    }
+
+    void IAvaliavel.Estrelas(Estrelas estrelas)
+    {
+        this.estrelas.Add(estrelas);
     }
 }
