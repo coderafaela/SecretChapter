@@ -3,7 +3,7 @@ using SecretChapter.Modelos;
 
 Dictionary<string, Autor> autoresRegistrados = new();
 
-Dictionary<int, Menu> opcoes=new();
+Dictionary<int, Menu> opcoes = new();
 opcoes.Add(1, new MenuRegistrarAutores());
 opcoes.Add(2, new MenuRegistrarLivros());
 opcoes.Add(3, new MenuRegistrarSagas());
