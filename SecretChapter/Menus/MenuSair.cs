@@ -6,7 +6,7 @@ internal class MenuSair : Menu
     public override void Executar(Dictionary<string, Autor> autoresRegistrados)
     {
         base.Executar(autoresRegistrados);
-        Console.WriteLine("Bye bye, bitch");
+        Console.WriteLine("Bye bye");
         Environment.Exit(0);
     }
 }
