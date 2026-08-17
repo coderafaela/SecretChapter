@@ -104,4 +104,4 @@ Autor: Robert Jackson Bennett
 
 ## ✍️ Autora
 
-Feito por [Rafaela A. Quevedo](https://github.com/coderafaela), estudante de ADS e futura desenvolvedora back-end, sempre com uma lista de leitura grande demais pra dar conta.
+Feito por [Rafaela A. Quevedo](https://github.com/coderafaela), estudante de ADS e desenvolvedora, sempre com uma lista de leitura grande demais pra dar conta.
